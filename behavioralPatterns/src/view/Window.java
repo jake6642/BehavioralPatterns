@@ -1,5 +1,17 @@
 package view;
-
+/*
+ * 2018-03-23
+ * Patterns of Object-Oriented Systems
+ * 
+ * Jacob Collins & Malya Juvvadi
+ * 
+ * Purpose: This package will be responsible for 
+ * displaying the user interface. It will also
+ * implement the Observer functions so that the interface 
+ * can be updated when the model changes, independent of
+ * the controller. 
+ *
+ * */
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;

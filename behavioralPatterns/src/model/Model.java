@@ -1,5 +1,15 @@
 package model;
-
+/*
+ * 2018-03-23
+ * Patterns of Object-Oriented Systems
+ * 
+ * Jacob Collins & Malya Juvvadi
+ * 
+ * Purpose: This package will be responsible for 
+ * implementing the computational side of the program.
+ * 
+ *
+ * */
 import java.util.ArrayList;
 
 public class Model {

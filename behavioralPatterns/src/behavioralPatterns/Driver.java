@@ -1,5 +1,15 @@
 package behavioralPatterns;
-
+/*
+ * 2018-03-23
+ * Patterns of Object-Oriented Systems
+ * 
+ * Jacob Collins & Malya Juvvadi
+ * 
+ * Purpose: This program will use the MVC framework to 
+ * implement the Observer and Memento Patterns. 
+ * 
+ *
+ * */
 import controller.Controller;
 import model.Model;
 import view.Window;
