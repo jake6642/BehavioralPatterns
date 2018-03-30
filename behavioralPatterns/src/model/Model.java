@@ -1,24 +1,17 @@
 package model;
-/*
- * 2018-03-23
- * Patterns of Object-Oriented Systems
- * 
- * Jacob Collins & Malya Juvvadi
- * 
- * Purpose: This package will be responsible for 
- * implementing the computational side of the program.
- * 
- *
- * */
-import java.util.ArrayList;
+
+
 
 public class Model {
 	private Observer observer;
-	Caretaker ct = new Caretaker();
+	SingletonMemento memento;
 	int num = 0;
 
 	/*default constructor*/
 	public Model() {
+		//get a single instance of the memento upon model creation. 
+		//notice that no "new" operation is called for the memento
+		this.memento = SingletonMemento.getInstance();
 	}
 
 	/*Set the observer for this model*/
@@ -26,41 +19,15 @@ public class Model {
 		this.observer = observer;
 	}
 
-	/*This is basically a container for the mememento*/
-	class Memento {
-		private int state;
-
-		public Memento(int state) {
-			this.state = state;
-		}
-
-		public int getState() {
-			return state;
-		}
-
-	}
-
-	/*Subclass that takes care of the memento*/
-	class Caretaker {
-		private ArrayList<Memento> mementos = new ArrayList<>();
-
-		public void addMemento(Memento m) {
-			mementos.add(m);
-		}
-
-		public Memento getMemento() {
-			return mementos.get(0);
-		}
-	}
 
 	/* returns the currently saved memento*/
 	public String getSaved() {
-		return Integer.toString(ct.getMemento().getState());
+		return Integer.toString(memento.getMemento().getState());
 	}
 	
 	public void restore() {
 		try {
-			setNum(ct.getMemento().getState());
+			setNum(memento.getMemento().getState());
 		}catch(Exception e){
 			System.out.println("No Memento to retrieve");
 		}
@@ -70,8 +37,7 @@ public class Model {
 	 * directly accessing the memento class.
 	 * */
 	public void store() {
-		ct = new Caretaker();
-		ct.addMemento(new Memento(getNum()));
+		memento.addMemento(memento.setState(getNum()));
 		observer.mementoChanged();
 	}
 
